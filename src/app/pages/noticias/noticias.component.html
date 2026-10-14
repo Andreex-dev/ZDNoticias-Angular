@@ -1,0 +1,170 @@
+
+<app-header></app-header>
+
+<main class="catalog-page">
+  <section class="catalog-heading">
+    <div class="catalog-container">
+      <span class="eyebrow">MANTENTE INFORMADO</span>
+      <h1>Todas las noticias</h1>
+      <p>
+        Explora, descubre y mantente informado con las últimas novedades.
+      </p>
+    </div>
+  </section>
+
+  <section class="catalog-container catalog-content">
+
+    <div class="search-row">
+      <label class="search-box">
+        <span aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          placeholder="Buscar noticias..."
+          aria-label="Buscar noticias"
+          [(ngModel)]="busqueda"
+          (ngModelChange)="reiniciarPagina()">
+      </label>
+
+      <button
+        type="button"
+        class="search-button"
+        (click)="reiniciarPagina()">
+        Buscar
+      </button>
+    </div>
+
+    <div class="category-filters" aria-label="Filtrar por categoría">
+      @for (categoria of categorias; track categoria) {
+        <button
+          type="button"
+          class="filter-button"
+          [class.selected]="categoriaSeleccionada === categoria"
+          [attr.aria-pressed]="categoriaSeleccionada === categoria"
+          (click)="seleccionarCategoria(categoria)">
+          {{ categoria }}
+        </button>
+      }
+    </div>
+
+    @if (cargando) {
+      <div class="feedback">
+        <p>Cargando noticias...</p>
+      </div>
+    } @else if (errorCarga) {
+      <div class="feedback error">
+        <h2>No fue posible cargar las noticias</h2>
+        <p>Comprueba que el archivo JSON esté disponible.</p>
+        <button
+          class="search-button"
+          type="button"
+          (click)="ngOnInit()">
+          Reintentar
+        </button>
+      </div>
+    } @else {
+      <div class="results-summary">
+        <p>
+          Se encontraron
+          <strong>{{ noticiasFiltradas.length }}</strong>
+          noticias
+        </p>
+      </div>
+
+      <div class="news-grid">
+        @for (noticia of noticiasPaginadas; track noticia.id) {
+          <article class="news-card">
+
+            <div class="card-image">
+              <img
+                [src]="noticia.imagen"
+                [alt]="noticia.titulo"
+                loading="lazy">
+
+              <span class="news-category">
+                {{ noticia.categoria }}
+              </span>
+            </div>
+
+            <div class="card-body">
+              <h2>{{ noticia.titulo }}</h2>
+              <p>{{ noticia.descripcion }}</p>
+
+              <div class="card-meta">
+                <span>{{ noticia.fecha }}</span>
+                <span>{{ noticia.lectura }} de lectura</span>
+              </div>
+
+              <div class="card-actions">
+                <button
+                  type="button"
+                  class="favorite-button"
+                  [class.is-favorite]="esFavorita(noticia.id)"
+                  [attr.aria-label]="esFavorita(noticia.id)
+                    ? 'Quitar de favoritos'
+                    : 'Agregar a favoritos'"
+                  [attr.aria-pressed]="esFavorita(noticia.id)"
+                  (click)="toggleFavorito(noticia.id)">
+                  {{ esFavorita(noticia.id) ? '♥' : '♡' }}
+                </button>
+
+                <a [routerLink]="['/detalle', noticia.id]">
+                  Ver más →
+                </a>
+              </div>
+            </div>
+
+          </article>
+        } @empty {
+          <div class="empty-results">
+            <h2>No encontramos noticias</h2>
+            <p>
+              Prueba con otra palabra o selecciona una categoría diferente.
+            </p>
+
+            <button
+              type="button"
+              class="search-button"
+              (click)="busqueda = ''; seleccionarCategoria('Todas')">
+              Limpiar filtros
+            </button>
+          </div>
+        }
+      </div>
+
+      @if (noticiasFiltradas.length > noticiasPorPagina) {
+        <nav class="pagination" aria-label="Paginación de noticias">
+
+          <button
+            type="button"
+            [disabled]="paginaActual === 1"
+            (click)="cambiarPagina(paginaActual - 1)"
+            aria-label="Página anterior">
+            ‹
+          </button>
+
+          @for (pagina of paginas; track pagina) {
+            <button
+              type="button"
+              [class.active-page]="paginaActual === pagina"
+              [attr.aria-current]="paginaActual === pagina ? 'page' : null"
+              (click)="cambiarPagina(pagina)">
+              {{ pagina }}
+            </button>
+          }
+
+          <button
+            type="button"
+            [disabled]="paginaActual === totalPaginas"
+            (click)="cambiarPagina(paginaActual + 1)"
+            aria-label="Página siguiente">
+            ›
+          </button>
+
+        </nav>
+      }
+    }
+
+  </section>
+</main>
+
+<app-footer></app-footer>

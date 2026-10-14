@@ -1,0 +1,236 @@
+
+<app-header></app-header>
+
+<main>
+  <!-- HERO PRINCIPAL -->
+  <section class="hero">
+    <div class="hero-container">
+
+      <div class="hero-content">
+        <span class="eyebrow">
+          INFORMACIÓN QUE TE ACERCA AL MUNDO
+        </span>
+
+        <h1>
+          El mundo en <span>una sola</span> plataforma
+        </h1>
+
+        <p>
+          Noticias de tecnología, educación, turismo, actualidad y mucho más.
+          Mantente informado con contenidos relevantes para ti.
+        </p>
+
+        <div class="hero-actions">
+          <a routerLink="/noticias" class="btn btn-primary">
+            Explorar noticias →
+          </a>
+
+          <a routerLink="/favoritos" class="btn btn-outline">
+            Mis favoritos
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>9+</strong>
+            <span>Noticias</span>
+          </div>
+
+          <div>
+            <strong>5</strong>
+            <span>Categorías</span>
+          </div>
+
+          <div>
+            <strong>24/7</strong>
+            <span>Información</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85"
+          alt="Circuitos electrónicos y tecnología digital">
+
+        <div class="image-label">
+          TECNOLOGÍA E INNOVACIÓN
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NOTICIAS DESTACADAS: CARGADAS DESDE JSON -->
+  <section class="featured section-container">
+
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow light">
+          DESCUBRE LO MÁS RECIENTE
+        </span>
+
+        <h2>Noticias destacadas</h2>
+
+        <p>
+          Una selección de contenidos para comenzar tu recorrido.
+        </p>
+      </div>
+
+      <a routerLink="/noticias" class="text-link">
+        Ver todas →
+      </a>
+    </div>
+
+    <!-- Estado de carga -->
+    @if (cargando) {
+      <div class="state-message">
+        <p>Cargando noticias...</p>
+      </div>
+    }
+
+    <!-- Estado de error -->
+    @else if (errorCarga) {
+      <div class="state-message error-message">
+        <h3>Ocurrió un problema</h3>
+
+        <p>
+          No fue posible cargar las noticias. Comprueba que el archivo JSON
+          esté disponible e inténtalo nuevamente.
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="reintentar()">
+          Reintentar
+        </button>
+      </div>
+    }
+
+    <!-- Noticias cargadas -->
+    @else {
+      <div class="featured-grid">
+
+        @for (noticia of noticiasDestacadas; track noticia.id) {
+          <article class="news-card">
+
+            <img
+              [src]="noticia.imagen"
+              [alt]="noticia.titulo"
+              loading="lazy">
+
+            <div class="card-content">
+
+              <span class="category">
+                {{ noticia.categoria }}
+              </span>
+
+              <h3>{{ noticia.titulo }}</h3>
+
+              <p>{{ noticia.descripcion }}</p>
+
+              <a [routerLink]="['/detalle', noticia.id]">
+                Ver noticia →
+              </a>
+
+            </div>
+          </article>
+        }
+
+        @empty {
+          <div class="state-message">
+            <p>No hay noticias destacadas disponibles.</p>
+          </div>
+        }
+
+      </div>
+    }
+
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="categories-section">
+    <div class="section-container">
+
+      <div class="center-heading">
+        <span class="eyebrow light">
+          EXPLORA NUEVOS CONTENIDOS
+        </span>
+
+        <h2>Explora por temas de interés</h2>
+
+        <p>
+          Encuentra noticias según tus intereses.
+        </p>
+      </div>
+
+      <div class="category-grid">
+
+        <a
+          routerLink="/categorias"
+          [queryParams]="{categoria: 'Tecnología'}"
+          class="category-box">
+
+          <span>01</span>
+          <h3>Tecnología</h3>
+          <p>
+            Innovación, ciencia y transformación digital.
+          </p>
+        </a>
+
+        <a
+          routerLink="/categorias"
+          [queryParams]="{categoria: 'Educación'}"
+          class="category-box">
+
+          <span>02</span>
+          <h3>Educación</h3>
+          <p>
+            Nuevas formas de aprender y enseñar.
+          </p>
+        </a>
+
+        <a
+          routerLink="/categorias"
+          [queryParams]="{categoria: 'Turismo'}"
+          class="category-box">
+
+          <span>03</span>
+          <h3>Turismo</h3>
+          <p>
+            Destinos, viajes y naturaleza.
+          </p>
+        </a>
+
+        <a
+          routerLink="/categorias"
+          [queryParams]="{categoria: 'Actualidad'}"
+          class="category-box">
+
+          <span>04</span>
+          <h3>Actualidad</h3>
+          <p>
+            Información sobre acontecimientos recientes.
+          </p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LLAMADO A LA ACCIÓN -->
+  <section class="closing">
+    <h2>¿Listo para descubrir más?</h2>
+
+    <p>
+      Explora nuevas historias y mantente informado con ZDNoticias.
+    </p>
+
+    <a routerLink="/noticias" class="btn btn-primary">
+      Ver todas las noticias →
+    </a>
+  </section>
+</main>
+
+<app-footer></app-footer>

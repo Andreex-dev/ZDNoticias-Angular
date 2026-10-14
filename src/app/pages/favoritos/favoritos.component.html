@@ -1,0 +1,135 @@
+
+<app-header></app-header>
+
+<main class="favorites-page">
+
+  <section class="favorites-heading">
+    <div class="favorites-container">
+      <span class="eyebrow">TU SELECCIÓN PERSONAL</span>
+
+      <h1>Mis favoritos</h1>
+
+      <p>
+        Encuentra aquí las noticias que guardaste para leer más tarde.
+      </p>
+    </div>
+  </section>
+
+  <section class="favorites-container favorites-content">
+
+    @if (cargando) {
+      <div class="favorites-message">
+        <p>Cargando tus noticias favoritas...</p>
+      </div>
+    }
+
+    @else if (errorCarga) {
+      <div class="favorites-message error-message">
+        <h2>No pudimos cargar tus favoritos</h2>
+
+        <p>
+          Comprueba tu conexión y vuelve a intentarlo.
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="reintentar()">
+          Reintentar
+        </button>
+      </div>
+    }
+
+    @else if (noticiasFavoritas.length === 0) {
+      <div class="favorites-empty">
+
+        <div class="empty-icon">♡</div>
+
+        <h2>Aún no tienes noticias favoritas</h2>
+
+        <p>
+          Explora nuestro catálogo y guarda las noticias que más te interesen.
+          Aquí aparecerán para que puedas consultarlas cuando quieras.
+        </p>
+
+        <a routerLink="/noticias" class="btn btn-primary">
+          Explorar noticias →
+        </a>
+
+      </div>
+    }
+
+    @else {
+      <div class="favorites-summary">
+        <h2>Noticias guardadas</h2>
+
+        <span>
+          {{ noticiasFavoritas.length }}
+          {{ noticiasFavoritas.length === 1 ? 'noticia guardada' : 'noticias guardadas' }}
+        </span>
+      </div>
+
+      <div class="favorites-grid">
+
+        @for (noticia of noticiasFavoritas; track noticia.id) {
+          <article class="favorite-card">
+
+            <a
+              [routerLink]="['/detalle', noticia.id]"
+              class="favorite-image-link"
+              [attr.aria-label]="'Leer ' + noticia.titulo">
+
+              <img
+                [src]="noticia.imagen"
+                [alt]="noticia.titulo"
+                loading="lazy">
+
+              <span class="news-category">
+                {{ noticia.categoria }}
+              </span>
+            </a>
+
+            <div class="favorite-card-content">
+
+              <span class="news-date">
+                {{ noticia.fecha }}
+              </span>
+
+              <h3>
+                <a [routerLink]="['/detalle', noticia.id]">
+                  {{ noticia.titulo }}
+                </a>
+              </h3>
+
+              <p>{{ noticia.descripcion }}</p>
+
+              <div class="favorite-card-actions">
+
+                <a
+                  [routerLink]="['/detalle', noticia.id]"
+                  class="read-link">
+                  Leer noticia →
+                </a>
+
+                <button
+                  type="button"
+                  class="remove-button"
+                  [attr.aria-label]="'Quitar ' + noticia.titulo + ' de favoritos'"
+                  (click)="quitarFavorito(noticia.id)">
+                  ♥ Quitar
+                </button>
+
+              </div>
+
+            </div>
+          </article>
+        }
+
+      </div>
+    }
+
+  </section>
+
+</main>
+
+<app-footer></app-footer>

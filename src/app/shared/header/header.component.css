@@ -1,0 +1,99 @@
+:host {
+  display: block;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  border-bottom: 1px solid #e8eef2;
+}
+
+.header-container {
+  width: min(1200px, 92%);
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #0b2740;
+  font-size: 21px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.brand-logo {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #00a9b7;
+  color: white;
+  font-size: 15px;
+}
+
+.brand-name span {
+  color: #00a9b7;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.main-nav a {
+  position: relative;
+  padding: 10px 0;
+  color: #52677c;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #00a9b7;
+}
+
+.main-nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #00a9b7;
+  border-radius: 2px;
+}
+
+@media (max-width: 720px) {
+  .header-container {
+    padding: 15px 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .main-nav {
+    width: 100%;
+    gap: 20px;
+    overflow-x: auto;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+}

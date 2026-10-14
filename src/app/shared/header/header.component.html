@@ -1,0 +1,36 @@
+<header class="site-header">
+  <div class="header-container">
+
+    <a routerLink="/" class="brand" aria-label="ZDNoticias - Inicio">
+      <span class="brand-logo">ZD</span>
+      <span class="brand-name">
+        ZD<span>Noticias</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a routerLink="/"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
+        Inicio
+      </a>
+
+      <a routerLink="/noticias" routerLinkActive="active">
+        Noticias
+      </a>
+
+      <a routerLink="/categorias" routerLinkActive="active">
+        Categorías
+      </a>
+
+      <a routerLink="/favoritos" routerLinkActive="active">
+        Favoritos
+      </a>
+
+      <a routerLink="/contacto" routerLinkActive="active">
+        Contacto
+      </a>
+    </nav>
+
+  </div>
+</header>

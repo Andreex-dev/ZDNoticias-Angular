@@ -1,0 +1,118 @@
+
+<app-header></app-header>
+
+<main class="detail-page">
+  <div class="detail-container">
+
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a routerLink="/">Inicio</a>
+      <span>›</span>
+      <a routerLink="/noticias">Noticias</a>
+
+      @if (noticia) {
+        <span>›</span>
+        <span>{{ noticia.categoria }}</span>
+      }
+    </nav>
+
+    @if (cargando) {
+      <div class="detail-message">
+        Cargando noticia...
+      </div>
+    }
+
+    @else if (errorCarga) {
+      <div class="detail-message error">
+        <h2>Ocurrió un problema</h2>
+        <p>No fue posible cargar la noticia.</p>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="ngOnInit()">
+          Reintentar
+        </button>
+      </div>
+    }
+
+    @else if (noEncontrada || !noticia) {
+      <div class="detail-message">
+        <h2>Noticia no encontrada</h2>
+        <p>La noticia que buscas no está disponible.</p>
+
+        <a routerLink="/noticias" class="btn btn-primary">
+          Volver a noticias
+        </a>
+      </div>
+    }
+
+    @else {
+      <article class="article">
+
+        <header class="article-header">
+          <span class="article-category">
+            {{ noticia.categoria }}
+          </span>
+
+          <h1>{{ noticia.titulo }}</h1>
+
+          <p class="article-description">
+            {{ noticia.descripcion }}
+          </p>
+
+          <div class="article-meta">
+            <span>Por {{ noticia.autor }}</span>
+            <span>{{ noticia.fecha }}</span>
+            <span>{{ noticia.lectura }} de lectura</span>
+          </div>
+        </header>
+
+        <img
+          class="article-image"
+          [src]="noticia.imagen"
+          [alt]="noticia.titulo">
+
+        <div class="article-toolbar">
+          <button
+            type="button"
+            class="favorite-button"
+            [class.is-favorite]="esFavorita(noticia.id)"
+            [attr.aria-pressed]="esFavorita(noticia.id)"
+            (click)="toggleFavorito(noticia.id)">
+
+            {{ esFavorita(noticia.id) ? '♥' : '♡' }}
+
+            {{ esFavorita(noticia.id)
+              ? 'Quitar de favoritos'
+              : 'Agregar a favoritos' }}
+          </button>
+
+          <a routerLink="/noticias" class="back-link">
+            ← Volver al listado
+          </a>
+        </div>
+
+        <div class="article-content">
+          <h2>Sobre esta noticia</h2>
+
+          <p>{{ noticia.contenido }}</p>
+        </div>
+
+        <div class="article-footer">
+          <p>
+            Gracias por informarte con
+            <strong>ZDNoticias</strong>.
+          </p>
+
+          <a routerLink="/noticias" class="btn btn-primary">
+            Explorar más noticias →
+          </a>
+        </div>
+
+      </article>
+    }
+
+  </div>
+</main>
+
+<app-footer></app-footer>

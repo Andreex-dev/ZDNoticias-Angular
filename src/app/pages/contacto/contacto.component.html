@@ -1,0 +1,181 @@
+
+<app-header></app-header>
+
+<main class="contact-page">
+
+  <section class="contact-heading">
+    <div class="contact-container">
+      <span class="eyebrow">ESTAMOS PARA ESCUCHARTE</span>
+
+      <h1>Contacto</h1>
+
+      <p>
+        ¿Tienes una pregunta, sugerencia o una noticia para compartir?
+        Completa el formulario y cuéntanos cómo podemos ayudarte.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-container contact-content">
+
+    <div class="contact-intro">
+      <div class="contact-intro-icon">✉</div>
+
+      <h2>Hablemos</h2>
+
+      <p>
+        En ZDNoticias valoramos las opiniones de nuestros lectores.
+        Tus comentarios nos ayudan a mejorar la experiencia de la plataforma.
+      </p>
+
+      <div class="contact-note">
+        <strong>Antes de enviar</strong>
+        <p>
+          Verifica que tus datos estén correctos y que el mensaje
+          describa claramente tu consulta o sugerencia.
+        </p>
+      </div>
+    </div>
+
+    <div class="contact-form-card">
+
+      <h2>Envíanos un mensaje</h2>
+
+      <p class="form-description">
+        Los campos marcados con * son obligatorios.
+      </p>
+
+      @if (formularioEnviado) {
+        <div class="success-message" role="status">
+          <strong>✓ ¡Mensaje enviado correctamente!</strong>
+          <p>
+            Las validaciones del formulario se completaron correctamente.
+          </p>
+        </div>
+      }
+
+      <form
+        #formContacto="ngForm"
+        (ngSubmit)="enviar(formContacto)"
+        novalidate>
+
+        <div class="form-field">
+          <label for="nombre">Nombre completo *</label>
+
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            [(ngModel)]="formulario.nombre"
+            #nombre="ngModel"
+            (input)="formularioEnviado = false"
+            required
+            minlength="3"
+            maxlength="100"
+            placeholder="Escribe tu nombre"
+            autocomplete="name">
+
+          @if (nombre.invalid && (nombre.touched || formContacto.submitted)) {
+            <span class="field-error">
+              @if (nombre.errors?.['required']) {
+                El nombre es obligatorio.
+              } @else if (nombre.errors?.['minlength']) {
+                Escribe al menos 3 caracteres.
+              }
+            </span>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="correo">Correo electrónico *</label>
+
+          <input
+            id="correo"
+            name="correo"
+            type="email"
+            [(ngModel)]="formulario.correo"
+            #correo="ngModel"
+            (input)="formularioEnviado = false"
+            required
+            email
+            maxlength="150"
+            placeholder="ejemplo@correo.com"
+            autocomplete="email">
+
+          @if (correo.invalid && (correo.touched || formContacto.submitted)) {
+            <span class="field-error">
+              @if (correo.errors?.['required']) {
+                El correo electrónico es obligatorio.
+              } @else {
+                Ingresa un correo electrónico válido.
+              }
+            </span>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="asunto">Asunto *</label>
+
+          <input
+            id="asunto"
+            name="asunto"
+            type="text"
+            [(ngModel)]="formulario.asunto"
+            #asunto="ngModel"
+            (input)="formularioEnviado = false"
+            required
+            minlength="3"
+            maxlength="120"
+            placeholder="¿Sobre qué quieres escribir?">
+
+          @if (asunto.invalid && (asunto.touched || formContacto.submitted)) {
+            <span class="field-error">
+              @if (asunto.errors?.['required']) {
+                El asunto es obligatorio.
+              } @else {
+                Escribe un asunto de al menos 3 caracteres.
+              }
+            </span>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="mensaje">Mensaje *</label>
+
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            [(ngModel)]="formulario.mensaje"
+            #mensaje="ngModel"
+            (input)="formularioEnviado = false"
+            required
+            minlength="10"
+            maxlength="1500"
+            rows="6"
+            placeholder="Escribe tu mensaje aquí..."></textarea>
+
+          @if (mensaje.invalid && (mensaje.touched || formContacto.submitted)) {
+            <span class="field-error">
+              @if (mensaje.errors?.['required']) {
+                El mensaje es obligatorio.
+              } @else {
+                Escribe un mensaje de al menos 10 caracteres.
+              }
+            </span>
+          }
+        </div>
+
+        <button
+          type="submit"
+          class="submit-button">
+          Enviar mensaje →
+        </button>
+
+      </form>
+    </div>
+
+  </section>
+
+</main>
+
+<app-footer></app-footer>

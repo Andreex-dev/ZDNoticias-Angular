@@ -1,0 +1,398 @@
+
+:host {
+  display: block;
+  color: #0b2740;
+}
+
+/* Hero principal */
+.hero {
+  background: linear-gradient(115deg, #0b2740, #103d55);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-container {
+  width: min(1200px, 92%);
+  min-height: 490px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  align-items: center;
+  gap: 55px;
+  padding: 60px 0;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: #21d4d9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.hero h1 {
+  max-width: 590px;
+  margin: 0;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+.hero h1 span {
+  color: #21d4d9;
+}
+
+.hero-content > p {
+  max-width: 520px;
+  margin: 24px 0;
+  color: #d1dfe8;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  min-height: 46px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: #00a9b7;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #008e9b;
+}
+
+.btn-outline {
+  border: 1px solid #b8d2df;
+  color: #ffffff;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 36px;
+  margin-top: 35px;
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hero-stats strong {
+  color: #21d4d9;
+  font-size: 23px;
+}
+
+.hero-stats span {
+  color: #d1dfe8;
+  font-size: 12px;
+}
+
+.hero-image {
+  position: relative;
+  min-width: 0;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: 355px;
+  object-fit: cover;
+  border: 1px solid #00a9b7;
+  border-radius: 20px;
+}
+
+.image-label {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  background: #00a9b7;
+  padding: 9px 13px;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Secciones */
+.section-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+}
+
+.featured {
+  padding-top: 80px;
+  padding-bottom: 85px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.eyebrow.light {
+  color: #00a9b7;
+  margin-bottom: 10px;
+}
+
+.section-heading h2,
+.center-heading h2 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3vw, 36px);
+}
+
+.section-heading p,
+.center-heading > p {
+  margin: 0;
+  color: #64788b;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.text-link {
+  color: #009ba8;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Tarjetas de noticias */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.news-card {
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e6edf1;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgb(11 39 64 / 6%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgb(11 39 64 / 11%);
+}
+
+.news-card > img {
+  display: block;
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 22px;
+}
+
+.category {
+  display: inline-block;
+  color: #009ba8;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.card-content h3 {
+  margin: 12px 0;
+  color: #0b2740;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.card-content p {
+  min-height: 44px;
+  margin: 0;
+  color: #64788b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.card-content a {
+  display: inline-block;
+  margin-top: 16px;
+  color: #009ba8;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.card-content a:hover,
+.text-link:hover {
+  color: #006d78;
+}
+
+/* Categorías */
+.categories-section {
+  padding: 75px 0 85px;
+  background: #f2f8fa;
+}
+
+.center-heading {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.center-heading .eyebrow {
+  margin-bottom: 12px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.category-box {
+  padding: 25px;
+  border: 1px solid #e2ebef;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #0b2740;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.category-box:hover {
+  transform: translateY(-3px);
+  border-color: #00a9b7;
+}
+
+.category-box > span {
+  color: #00a9b7;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.category-box h3 {
+  margin: 15px 0 8px;
+  font-size: 18px;
+}
+
+.category-box p {
+  margin: 0;
+  color: #64788b;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Llamado a la acción */
+.closing {
+  padding: 75px 20px;
+  background: #0b2740;
+  color: #ffffff;
+  text-align: center;
+}
+
+.closing h2 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 38px);
+}
+
+.closing p {
+  margin: 0 0 25px;
+  color: #c7d7e2;
+  line-height: 1.7;
+}
+
+/* Estados de carga y error */
+.state-message {
+  padding: 35px 24px;
+  border-radius: 14px;
+  background: #f6fafb;
+  color: #64788b;
+  text-align: center;
+}
+
+.state-message p {
+  line-height: 1.7;
+}
+
+.error-message {
+  border: 1px solid #f3c5c5;
+  background: #fff8f8;
+}
+
+.error-message h3 {
+  color: #0b2740;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 850px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .hero-image img {
+    height: 300px;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .hero-container {
+    padding: 45px 0;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .hero-stats {
+    gap: 24px;
+  }
+
+  .featured-grid,
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .news-card > img {
+    height: 220px;
+  }
+}

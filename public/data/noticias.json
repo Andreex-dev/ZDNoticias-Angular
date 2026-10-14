@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "titulo": "La inteligencia artificial transforma la educación",
+    "categoria": "Educación",
+    "descripcion": "Nuevas herramientas de inteligencia artificial están transformando los procesos de aprendizaje.",
+    "imagen": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=700&q=80",
+    "fecha": "12/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "5 min",
+    "destacada": true,
+    "contenido": "La inteligencia artificial está generando nuevas posibilidades para estudiantes y docentes. Las herramientas digitales facilitan la personalización del aprendizaje, la consulta de información y el desarrollo de nuevas metodologías educativas."
+  },
+  {
+    "id": 2,
+    "titulo": "Destinos imperdibles para este 2026",
+    "categoria": "Turismo",
+    "descripcion": "Descubre destinos naturales y urbanos que ofrecen experiencias inolvidables.",
+    "imagen": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=80",
+    "fecha": "11/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "4 min",
+    "destacada": true,
+    "contenido": "El turismo continúa ofreciendo experiencias que combinan naturaleza, cultura y aventura. Planificar los viajes con responsabilidad permite disfrutar de los destinos y contribuir al cuidado de su entorno."
+  },
+  {
+    "id": 3,
+    "titulo": "Universidades apuestan por la sostenibilidad",
+    "categoria": "Actualidad",
+    "descripcion": "Instituciones educativas impulsan iniciativas para promover espacios más sostenibles.",
+    "imagen": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80",
+    "fecha": "10/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "4 min",
+    "destacada": true,
+    "contenido": "La sostenibilidad ha adquirido relevancia en los espacios educativos. Diferentes iniciativas buscan reducir residuos, optimizar recursos y fomentar hábitos responsables entre estudiantes y docentes."
+  },
+  {
+    "id": 4,
+    "titulo": "El comercio electrónico sigue en crecimiento",
+    "categoria": "Comercio",
+    "descripcion": "Las herramientas digitales continúan transformando las experiencias de compra.",
+    "imagen": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80",
+    "fecha": "09/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "3 min",
+    "destacada": false,
+    "contenido": "Las plataformas digitales permiten a los comercios ampliar sus canales de venta y ofrecer nuevas experiencias. La seguridad, la confianza y la facilidad de uso son aspectos importantes para los consumidores."
+  },
+  {
+    "id": 5,
+    "titulo": "Energías renovables para un futuro posible",
+    "categoria": "Tecnología",
+    "descripcion": "La innovación energética busca alternativas para reducir el impacto ambiental.",
+    "imagen": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=700&q=80",
+    "fecha": "08/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "5 min",
+    "destacada": false,
+    "contenido": "Las energías renovables forman parte de las alternativas para diversificar el suministro energético. Su desarrollo requiere innovación, inversión y planificación para responder a las necesidades de cada región."
+  },
+  {
+    "id": 6,
+    "titulo": "Nuevas herramientas para el desarrollo web",
+    "categoria": "Tecnología",
+    "descripcion": "Los desarrolladores cuentan con recursos que facilitan la creación de aplicaciones modernas.",
+    "imagen": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80",
+    "fecha": "07/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "4 min",
+    "destacada": false,
+    "contenido": "Las herramientas de desarrollo web evolucionan para facilitar la organización del código, la creación de interfaces y el mantenimiento de las aplicaciones. La elección de tecnologías debe responder a los objetivos del proyecto."
+  },
+  {
+    "id": 7,
+    "titulo": "La seguridad digital en la vida cotidiana",
+    "categoria": "Tecnología",
+    "descripcion": "Adoptar buenos hábitos digitales ayuda a proteger la información personal.",
+    "imagen": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=700&q=80",
+    "fecha": "06/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "5 min",
+    "destacada": false,
+    "contenido": "Utilizar contraseñas robustas, activar la verificación en dos pasos y desconfiar de enlaces sospechosos son medidas básicas para mejorar la seguridad de las cuentas personales."
+  },
+  {
+    "id": 8,
+    "titulo": "Nuevas oportunidades de aprendizaje virtual",
+    "categoria": "Educación",
+    "descripcion": "Los recursos en línea complementan los procesos de formación académica.",
+    "imagen": "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=700&q=80",
+    "fecha": "05/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "3 min",
+    "destacada": false,
+    "contenido": "La formación virtual permite acceder a materiales educativos desde diferentes lugares. Para aprovecharla es importante organizar el tiempo, participar en las actividades y establecer objetivos de aprendizaje."
+  },
+  {
+    "id": 9,
+    "titulo": "Innovación tecnológica en las ciudades",
+    "categoria": "Actualidad",
+    "descripcion": "Las soluciones digitales pueden contribuir a mejorar los servicios urbanos.",
+    "imagen": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=700&q=80",
+    "fecha": "04/10/2026",
+    "autor": "ZDNoticias",
+    "lectura": "4 min",
+    "destacada": false,
+    "contenido": "Las ciudades pueden aprovechar herramientas digitales para gestionar información y mejorar servicios. Su implementación debe considerar la accesibilidad, la seguridad y las necesidades de la ciudadanía."
+  }
+]

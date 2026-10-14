@@ -1,0 +1,118 @@
+
+<app-header></app-header>
+
+<main class="categories-page">
+
+  <section class="categories-heading">
+    <div class="categories-container">
+      <span class="eyebrow">EXPLORA NUEVOS CONTENIDOS</span>
+
+      <h1>Categorías de noticias</h1>
+
+      <p>
+        Encuentra información sobre los temas que más te interesan.
+      </p>
+    </div>
+  </section>
+
+  <section class="categories-container categories-content">
+
+    <div class="category-filters">
+      @for (categoria of categorias; track categoria) {
+        <button
+          type="button"
+          class="filter-button"
+          [class.selected]="categoriaSeleccionada === categoria"
+          [attr.aria-pressed]="categoriaSeleccionada === categoria"
+          (click)="seleccionarCategoria(categoria)">
+          {{ categoria }}
+        </button>
+      }
+    </div>
+
+    @if (cargando) {
+      <div class="categories-message">
+        Cargando categorías y noticias...
+      </div>
+    }
+
+    @else if (errorCarga) {
+      <div class="categories-message error-message">
+        <h2>No fue posible cargar los contenidos</h2>
+        <p>Comprueba que los datos estén disponibles.</p>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="reintentar()">
+          Reintentar
+        </button>
+      </div>
+    }
+
+    @else {
+      <div class="categories-summary">
+        <h2>
+          {{ categoriaSeleccionada === 'Todas'
+            ? 'Todas las noticias'
+            : categoriaSeleccionada }}
+        </h2>
+
+        <span>
+          {{ noticiasFiltradas.length }}
+          {{ noticiasFiltradas.length === 1 ? 'noticia' : 'noticias' }}
+        </span>
+      </div>
+
+      <div class="categories-grid">
+
+        @for (noticia of noticiasFiltradas; track noticia.id) {
+          <article class="category-card">
+
+            <a
+              [routerLink]="['/detalle', noticia.id]"
+              class="category-card-image">
+
+              <img
+                [src]="noticia.imagen"
+                [alt]="noticia.titulo"
+                loading="lazy">
+
+              <span class="news-badge">
+                {{ noticia.categoria }}
+              </span>
+            </a>
+
+            <div class="category-card-body">
+
+              <span class="news-date">{{ noticia.fecha }}</span>
+
+              <h3>{{ noticia.titulo }}</h3>
+
+              <p>{{ noticia.descripcion }}</p>
+
+              <a
+                [routerLink]="['/detalle', noticia.id]"
+                class="read-link">
+                Ver noticia →
+              </a>
+
+            </div>
+          </article>
+        }
+
+        @empty {
+          <div class="categories-message">
+            <h2>No hay noticias en esta categoría</h2>
+            <p>Selecciona otra categoría para consultar más contenidos.</p>
+          </div>
+        }
+
+      </div>
+    }
+
+  </section>
+
+</main>
+
+<app-footer></app-footer>
